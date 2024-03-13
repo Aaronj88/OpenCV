@@ -24,7 +24,7 @@ cv2.imshow('Open CV Bordered',Kitten_Bordered)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-Car_Outlined = cv2.Canny(Car,200,400) #lower and higher threshold based on the intesity of each pixel
+Car_Outlined = cv2.Canny(Car,200,400)
 cv2.imshow('Open CV Canny',Car_Outlined)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
