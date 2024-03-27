@@ -1,0 +1,20 @@
+import cv2
+import numpy as n
+
+eye = cv2.imread('C:/Users/aaron/OneDrive/Documents/Coding/Jetlearn/Open CV/Eye.jpeg')
+eye_grey = cv2.cvtColor(eye,cv2.COLOR_BGR2GRAY)
+eye_grey_blurred = cv2.blur(eye_grey,(8,8))
+detect_circles = cv2.HoughCircles(eye_grey_blurred,cv2.HOUGH_GRADIENT,1,20,param1=50,param2=30,minRadius=1,maxRadius=40)
+if detect_circles is not None:
+    pos = n.uint16(n.around(detect_circles))
+    for i in pos[0,:]:
+        a,b,r = i[0],i[1],i[2]
+        cv2.circle(eye,(a,b),r,(255,255,255),2)
+        cv2.circle(eye,(a,b),1,(255,255,255),4)
+        cv2.imshow('Eye with Circles',eye)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows
+
+
+
+
